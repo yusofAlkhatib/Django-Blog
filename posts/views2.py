@@ -1,6 +1,7 @@
 
 from django.shortcuts import render , redirect
 from .models import Post 
+from .forms import PostForm
 
 
 
@@ -21,8 +22,10 @@ class PostDetail(DetailView):
 
 class PostCreate(CreateView):
     model = Post 
-    fields = '__all__'
+   # fields = '__all__'
     success_url = '/blog/'
+    form_class = PostForm
+
 
 class PostEdit(UpdateView):
     model = Post 
